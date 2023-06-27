@@ -1,0 +1,27 @@
+.cardContainer {
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: column;
+    background-color: transparent;
+    border: 4px solid rgb(0, 0, 0);
+    border-radius: 5px;
+    padding: 5px;
+    cursor: pointer;
+    -moz-osx-font-smoothing: grayscale;
+    backface-visibility: hidden;
+    transform: translateZ(0);
+    transition: transform 0.25s ease-out;
+    
+    &:hover {
+      transform: scale(1.05);
+    }
+}
+
+.contenido {
+    width: 100%; /* Asegura que el contenido se ajuste horizontalmente */
+    height: 100%; /* Asegura que el contenido se ajuste verticalmente */
+    display: flex; /* Utiliza flexbox para controlar el flujo del contenido */
+    flex-direction: column; /* Acomoda el contenido en una columna */
+    justify-content: center; /* Centra verticalmente el contenido */
+    align-items: center; /* Centra horizontalmente el contenido */
+  }
