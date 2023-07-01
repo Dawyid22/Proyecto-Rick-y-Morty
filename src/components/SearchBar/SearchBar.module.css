@@ -1,25 +1,22 @@
 .searchButton {
     display: inline-flex;
     overflow: hidden;
-    border-radius: 20px;
-    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
-    padding: 10px;
-    font-size: 20px;
-    border: none;
-    border-radius: 20px 0 0 20px;
-    color: #fff;
     padding: 10px 20px;
-    border: none;
-    border-radius: 0 20px 20px 0;
-    cursor: pointer;
-    transform-style: preserve-3d; 
-    transform: scale(1.1) rotateY(10deg);
+    border-radius:  20px 20px;
     margin-left: 20px;
+    transform: translate( -146%, -390%);
     background-image: url(https://e1.pxfuel.com/desktop-wallpaper/582/799/desktop-wallpaper-rick-and-morty-backround-posted-by-ethan-mercado-rick-and-morty-portal.jpg);
-    transform: translate( 3%, 25%);
 }
 
 .inputColor{
     background-image: url(https://e1.pxfuel.com/desktop-wallpaper/582/799/desktop-wallpaper-rick-and-morty-backround-posted-by-ethan-mercado-rick-and-morty-portal.jpg);
     width: 200px;
+    border-radius: 10px;
+    color: black;
+
+ }
+
+ .button{
+    background-color: rgb(40, 209, 6);
+    border-radius: 10px;
  }

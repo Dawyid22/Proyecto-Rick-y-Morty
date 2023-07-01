@@ -1,0 +1,23 @@
+.img {
+  position: relative;
+  top: -45px;
+  left: -150px;
+  width: 355px;
+  margin: 0;
+}
+
+.buttonHome{
+  background-color: rgb(40, 209, 6);
+  border-radius: 10px;
+  position: relative;
+  top: -157px;
+  left: -30px;
+}
+
+.buttonAbout{
+  background-color: rgb(40, 209, 6);
+  border-radius: 10px;
+  position: relative;
+  top: -157px;
+  left: -345px;
+}
