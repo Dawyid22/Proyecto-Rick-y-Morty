@@ -1,23 +1,36 @@
+
+.container {
+  margin: -60px;
+}
+
+
 .img {
   position: relative;
-  top: -45px;
+  top: 10px;
   left: -150px;
   width: 355px;
-  margin: 0;
 }
 
 .buttonHome{
   background-color: rgb(40, 209, 6);
   border-radius: 10px;
   position: relative;
-  top: -157px;
-  left: -30px;
+  top: -100px;
+  left: -50px;
 }
 
 .buttonAbout{
   background-color: rgb(40, 209, 6);
   border-radius: 10px;
   position: relative;
-  top: -157px;
-  left: -345px;
+  top: -100px;
+  left: -365px;
+}
+
+.buttonRandom{
+  background-color: rgb(40, 209, 6);
+  border-radius: 10px;
+  position: relative;
+  top: -100px;
+  left: 132px;
 }

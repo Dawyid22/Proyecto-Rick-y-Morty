@@ -1,0 +1,38 @@
+.container {
+  margin: auto;
+}
+
+.name {
+  font-size: 30px;
+  position: relative;
+  left: -200px;
+  top: 100px;
+}
+
+.detail {
+  font-size: 30px;
+  position: relative;
+  left: -200px;
+  top: 100px;
+}
+
+
+.image {
+    animation: spin 6s linear infinite;
+    position: relative;
+    top: -300px;
+    left: 200px;
+    width: 400px;
+    border: 10px solid;
+    border-color: rgb(126, 242, 24);
+    border-radius: 50%;
+}
+
+@keyframes spin {
+  0% {
+    transform: rotateY(0deg); /* Rotación inicial */
+  }
+  100% {
+    transform: rotateY(365deg); /* Rotación final */
+  }
+}

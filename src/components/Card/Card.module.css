@@ -12,26 +12,22 @@
 .cardImage {
   position: relative;
   top: -15px;
-  width: 58%;
+  width: 65%;
   max-height: 40%;
   object-fit:contain;
   border: 3px solid #000;
 }
 
 .title{
-  font-size: 18px; 
+  text-align: center;
+  font-size: 14px; 
   background-color: rgb(126, 242, 24);
-  font-weight: bold;
-  margin: 2px ;
-
+  margin: 0px ;
 }
 
 .cardTitle {
-  position: relative;
-  top: -19px;
   height: 9px;
-  font-size: 16px; 
-  margin: 9px ;
+  font-size: 14px; 
 }
 
 .cardContent {
@@ -42,13 +38,10 @@
 
 .botonX {
   position: relative;
-  top: 272px;
+  top: 280px;
   left: -10px;
   background-color: rgb(126, 242, 24);
   width: 107%;
   border: 3px solid #000; /* Borde con grosor de 3px */
-  padding: 8p; 
-  margin: 2px;
   cursor: pointer;
-  font-weight: bold;
 }
