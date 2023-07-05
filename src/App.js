@@ -7,34 +7,32 @@ import Detail from "./components/Detail/Detail";
 import axios from "axios";
 import { Route, Routes, useLocation, useNavigate } from "react-router-dom";
 import Error from "./components/Error/Error";
-import Form from "./components/Form/Form"
+import Form from "./components/Form/Form";
 
 function App() {
-
-  const [access, setAccess] = useState(false)
+  const [access, setAccess] = useState(false);
   const EMAIL = "david@gmail.com";
   const PASSWORD = "asdfgh2";
   const navigate = useNavigate();
 
-
   const login = (userData) => {
     if (userData.password === PASSWORD && userData.email === EMAIL) {
       setAccess(true);
-      navigate('/home');
-  }
-}
+      navigate("/home");
+    }
+  };
 
-useEffect(() => {
-  !access && navigate('/');
-}, [access]);
+  useEffect(() => {
+    !access && navigate("/");
+  }, [access]);
 
-  const location = useLocation()
+  const location = useLocation();
 
   const [characters, setCharacters] = useState([]);
 
   function onSearch(id) {
-
-    if(id > 826) return window.alert("¡No hay personajes con este ID! Solo hay 826")
+    if (id > 826)
+      return window.alert("¡No hay personajes con este ID! Solo hay 826");
 
     axios(`https://rickandmortyapi.com/api/character/${id}`).then(
       ({ data }) => {
@@ -59,26 +57,19 @@ useEffect(() => {
     setCharacters(charactersFiltered);
   };
 
-
-
   return (
     <div className="App">
-      {
-        location.pathname !== "/"
-        ? <Nav onSearch={onSearch} /> 
-        : null
-      }
-
+      {location.pathname !== "/" ? <Nav onSearch={onSearch} /> : null}
 
       <Routes>
         <Route
           path="/home"
           element={<Cards characters={characters} onClose={onClose} />}
         />
-        <Route path="/about" element={<About/>} />
-        <Route path="/detail/:id" element={<Detail/>} />
-        <Route path=":error" element={<Error/>}></Route>
-        <Route path="/" element={<Form login={login} />}/>
+        <Route path="/about" element={<About />} />
+        <Route path="/detail/:id" element={<Detail />} />
+        <Route path=":error" element={<Error />} />
+        <Route path="/" element={<Form login={login} />} />
       </Routes>
     </div>
   );

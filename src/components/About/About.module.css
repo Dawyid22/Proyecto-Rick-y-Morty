@@ -1,0 +1,35 @@
+.container {
+  position: relative;
+}
+
+.image {
+  position: relative;
+  top: 45px;
+  width: 385px; /* ajusta el tamaño según tus necesidades */
+  height: 385px;
+  transition: transform 0.5s ease;
+  cursor: pointer;
+  border: 4px solid;
+  border-color: rgb(126, 242, 24);
+  border-radius: 50%;
+}
+
+.text {
+  position: relative;
+  top: -150px;
+  left: -200px;
+  opacity: 0;
+  transition: opacity 0.1s ease;
+}
+
+.image.active {
+  transform: translateX(
+    250px
+  ); /* ajusta la cantidad de desplazamiento según tus necesidades */
+}
+
+.text.active {
+  opacity: 2;
+}
+
+
