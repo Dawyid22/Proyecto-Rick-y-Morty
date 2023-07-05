@@ -45,3 +45,12 @@
   border: 3px solid #000; /* Borde con grosor de 3px */
   cursor: pointer;
 }
+
+.buttonFavorites{
+  position: relative;
+  top: -103px;
+  left: 86px;
+  border: none;
+  outline: none;
+  background-color: transparent;
+}

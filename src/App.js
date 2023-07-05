@@ -8,6 +8,7 @@ import axios from "axios";
 import { Route, Routes, useLocation, useNavigate } from "react-router-dom";
 import Error from "./components/Error/Error";
 import Form from "./components/Form/Form";
+import Favorites from "./components/Favorites/Favorites"
 
 function App() {
   const [access, setAccess] = useState(false);
@@ -66,6 +67,7 @@ function App() {
           path="/home"
           element={<Cards characters={characters} onClose={onClose} />}
         />
+        <Route path="/favorites" element={<Favorites />}/>
         <Route path="/about" element={<About />} />
         <Route path="/detail/:id" element={<Detail />} />
         <Route path=":error" element={<Error />} />

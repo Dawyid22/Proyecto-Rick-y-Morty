@@ -19,6 +19,9 @@ const Nav = ({onSearch}) => {
             <button className={style.buttonAbout}>
                 <NavLink to="/About">About</NavLink>
             </button>
+            <button className={style.buttonFav}>
+                <NavLink to="/Favorites">Favorites</NavLink>
+            </button>
             <img className={style.img} src="https://1000marcas.net/wp-content/uploads/2022/04/Rick-and-Morty-768x432.png" alt="img"/>
 
         </div>

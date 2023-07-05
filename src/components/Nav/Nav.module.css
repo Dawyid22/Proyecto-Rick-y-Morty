@@ -34,3 +34,11 @@
   top: -100px;
   left: 132px;
 }
+
+.buttonFav{
+  background-color: rgb(40, 209, 6);
+  border-radius: 10px;
+  position: relative;
+  top: -100px;
+  left: -283px;
+}
