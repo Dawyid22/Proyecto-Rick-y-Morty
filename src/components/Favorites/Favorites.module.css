@@ -1,0 +1,10 @@
+.container{
+    display: flex;
+  flex-wrap: wrap;
+  justify-content: flex-start;
+  align-items: flex-start;
+  gap: 15px;
+  max-height: 650px;
+  overflow-y: auto;
+  transform: translate(3%, 2%);
+}

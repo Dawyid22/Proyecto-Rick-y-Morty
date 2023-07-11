@@ -1,6 +1,6 @@
 import style from "./Card.module.css";
 import { NavLink } from "react-router-dom";
-import {connect} from "react-redux";
+import { connect } from "react-redux";
 import { addFav, removeFav } from "../../redux/action";
 import { useState, useEffect } from "react";
 
@@ -23,7 +23,7 @@ const Card = ({
       removeFav(id);
     } else {
       setIsFav(true);
-      addFav({ id, name, species, gender, image, onClose});
+      addFav({ id, name, species, gender, image, onClose });
     }
   };
 
@@ -41,12 +41,7 @@ const Card = ({
         <h2 className={style.title}>{name}</h2>
         <button
           className={style.botonX}
-          onClick={() => {
-            onClose(id);
-          }}
-        >
-          X
-        </button>
+          onClick={() => {onClose(id);}}>X</button>
         <br />
         <NavLink to={`/detail/${id}`}>
           <img className={style.cardImage} src={image} alt={name} />
@@ -54,7 +49,9 @@ const Card = ({
         <div className={style.cardContent}>
           <h2 className={style.cardTitle}>{"Especie: " + species}</h2>
           <h2 className={style.cardTitle}>{"Genero: " + gender}</h2>
-          <button className={style.buttonFavorites} onClick={handleFavorite}>{isFav ? "💚" : "🤍"}</button>
+          <button className={style.buttonFavorites} onClick={handleFavorite}>
+            {isFav ? "💚" : "🤍"}
+          </button>
         </div>
       </div>
     </div>
