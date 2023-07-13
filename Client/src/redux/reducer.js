@@ -5,21 +5,17 @@ let inicialState = { myFavorites: [], allCharacters: [] };
 export default function reducer(state = inicialState, { type, payload }) {
   switch (type) {
     case ADD_FAV:
-      const copy = [...state.allCharacters, payload];
       return {
         ...state,
-        myFavorites: copy,
-        allCharacters: [...copy],
+        myFavorites: [...state.allCharacters, payload],
+        allCharacters: [...state.allCharacters, payload]
       };
 
     case REMOVE_FAV:
-      const characterFiltered = state.myFavorites.filter(
-        (character) => character.id !== payload
-      )
       return {
         ...state,
-        myFavorites: characterFiltered,
-        allCharacters: characterFiltered
+        myFavorites: state.myFavorites.filter(
+          (character) => character.id !== payload)
       };
 
     case FILTER:
@@ -32,19 +28,11 @@ export default function reducer(state = inicialState, { type, payload }) {
       };
 
     case ORDER:
-      const allCharacterCopy = state.allCharacters.sort((a, b) => {
-        if (payload === "A") {
-          if (a > b) return 1;
-          if (a < b) return -1;
-        } else {
-          if (a > b) return -1;
-          if (a > b) return 1;
-          return 0;
-        }
-      });
+      const allCharacterCopy = [...state.allCharacters]
       return {
         ...state,
-        myFavorites: allCharacterCopy,
+        myFavorites: payload === "A" ? allCharacterCopy.sort((a, b) => a.id - b.id) 
+        : allCharacterCopy.sort((a, b) => b.id - a.id)
       };
     default:
       return { ...state };
