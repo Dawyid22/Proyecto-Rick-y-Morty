@@ -8,23 +8,29 @@ import axios from "axios";
 import { Route, Routes, useLocation, useNavigate } from "react-router-dom";
 import Error from "./components/Error/Error";
 import Form from "./components/Form/Form";
-import Favorites from "./components/Favorites/Favorites"
+import Favorites from "./components/Favorites/Favorites";
 
 function App() {
   const [access, setAccess] = useState(false);
-  const EMAIL = "david@gmail.com";
-  const PASSWORD = "asdfgh2";
+  // const EMAIL = "david@gmail.com";
+  // const PASSWORD = "asdfgh2";
   const navigate = useNavigate();
 
-  const login = (userData) => {
-    const { email, password } = userData;
-    const URL = 'http://localhost:3001/rickandmorty/login/';
-    axios(URL + `?email=${email}&password=${password}`).then(({ data }) => {
-       const { access } = data;
-       setAccess(access);
-       access && navigate('/home');
-    });
- }
+  const login = async (userData) => {
+    try {
+      const { email, password } = userData;
+      const URL = "http://localhost:3001/rickandmorty/login/";
+      const { data } = await axios(
+        URL + `?email=${email}&password=${password}`
+      );
+      const { access } = data;
+
+      setAccess(access);
+      access && navigate("/home");
+    } catch (error) {
+      alert(error.massage);
+    }
+  };
 
   useEffect(() => {
     !access && navigate("/");
@@ -34,29 +40,28 @@ function App() {
 
   const [characters, setCharacters] = useState([]);
 
-  function onSearch(id) {
-    if (id > 826)
-      return window.alert("¡No hay personajes con este ID! Solo hay 826");
+  const onSearch = async (id) => {
+    try {
+      const { data } = await axios(
+        `http://localhost:3001/rickandmorty/character/${id}`
+      );
+      if (!data.name) throw new Error("Character no found");
 
-    axios(`http://localhost:3001/rickandmorty/character/${id}`).then(
-      ({ data }) => {
-        if (data.name) {
-          const isDuplicate = characters.some(
-            (character) => character.id === data.id
-          );
-          if (isDuplicate) {
-            window.alert("¡El personaje ya esta en pantalla buscalo vago!");
-          } else {
-            setCharacters((oldChars) => [...oldChars, data]);
-          }
-        }
-      }
-    );
-  }
+      const isDuplicate = characters.some(
+        (character) => character.id === data.id
+      );
+
+      if (isDuplicate)
+        throw new Error("¡El personaje ya esta en pantalla buscalo vago!");
+      setCharacters((oldChars) => [...oldChars, data]);
+    } catch (error) {
+      alert(error.message);
+    }
+  };
 
   const onClose = (id) => {
     const charactersFiltered = characters.filter(
-      (characters) => characters.id !== Number(id)
+      (characters) => characters.id !== +id
     );
     setCharacters(charactersFiltered);
   };
@@ -70,7 +75,7 @@ function App() {
           path="/home"
           element={<Cards characters={characters} onClose={onClose} />}
         />
-        <Route path="/favorites" element={<Favorites />}/>
+        <Route path="/favorites" element={<Favorites />} />
         <Route path="/about" element={<About />} />
         <Route path="/detail/:id" element={<Detail />} />
         <Route path=":error" element={<Error />} />

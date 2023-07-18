@@ -5,10 +5,11 @@ let inicialState = { myFavorites: [], allCharacters: [] };
 export default function reducer(state = inicialState, { type, payload }) {
   switch (type) {
     case ADD_FAV:
-      return { ...state, myFavorites: payload, allCharacters: payload };
+      return { ...state, myFavorites: payload, 
+        allCharacters: payload };
 
     case REMOVE_FAV:
-      return { ...state, myFavorites: payload, allCharacters: payload };
+      return { ...state, myFavorites: payload };
 
     case FILTER:
       const allCharacterFiltered = state.allCharacters.filter(
