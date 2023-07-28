@@ -29,7 +29,7 @@ const getCharById = async (req, res) => {
   }
 };
 
-module.exports = { getCharById };
+module.exports =  getCharById ;
 
 // .then((response) => response.data)
 // .then(({ id, name, status, species, origin, image, gender }) => {
