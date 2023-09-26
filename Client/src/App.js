@@ -12,8 +12,6 @@ import Favorites from "./components/Favorites/Favorites";
 
 function App() {
   const [access, setAccess] = useState(false);
-  // const EMAIL = "david@gmail.com";
-  // const PASSWORD = "asdfgh2";
   const navigate = useNavigate();
 
   const login = async (userData) => {
@@ -68,17 +66,17 @@ function App() {
 
   return (
     <div className="App">
-      {location.pathname !== "/" ? <Nav onSearch={onSearch} /> : null}
+      {location.pathname !== "/" && location.pathname !== "/:error" ? <Nav onSearch={onSearch} /> : null}
 
       <Routes>
         <Route
           path="/home"
           element={<Cards characters={characters} onClose={onClose} />}
         />
+        <Route path=":error" element={<Error />} />
         <Route path="/favorites" element={<Favorites />} />
         <Route path="/about" element={<About />} />
         <Route path="/detail/:id" element={<Detail />} />
-        <Route path=":error" element={<Error />} />
         <Route path="/" element={<Form login={login} />} />
       </Routes>
     </div>

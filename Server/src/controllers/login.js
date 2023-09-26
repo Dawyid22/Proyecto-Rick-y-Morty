@@ -1,6 +1,6 @@
 const { User } = require("../DB_connection");
 
-module.exports = async (req, res) => {
+const login = async (req, res) => {
   try {
     const { email, password } = req.query;
 
@@ -17,3 +17,5 @@ module.exports = async (req, res) => {
     return res.status(500).send(error.message);
   }
 };
+
+module.exports = login

@@ -1,5 +1,3 @@
-
-
 const validation = (userData) => {
 
     const errors = {}
@@ -9,7 +7,7 @@ const validation = (userData) => {
     }
 
     if(!userData.email){
-        errors.emial = "You must enter an email address"
+        errors.email = "You must enter an email address"
     }
 
     if(userData.email.length > 35){
